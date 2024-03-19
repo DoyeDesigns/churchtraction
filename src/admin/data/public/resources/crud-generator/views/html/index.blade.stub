@@ -1,0 +1,68 @@
+@extends('layouts.member')
+@section('pageTitle','%%crudNameCap%%')
+
+@section('titleForm')
+    <form id="nav-search" method="GET" action="{{ url('/%%routeGroup%%%%viewName%%') }}" role="search" class="sr-input-func">
+        <input name="search" value="{{ request('search') }}" type="text" placeholder="{{ ucfirst(__('site.search')) }}..." class="search-int form-control">
+        <a onClick="$('#nav-search').submit()" href="#"><i class="fa fa-search"></i></a>
+    </form>
+@endsection
+
+@section('breadcrumb')
+    <li><a href="{{ route('admin.dashboard') }}">@lang('admin.dashboard')</a> <span class="bread-slash">/</span>
+    </li>
+    <li><span class="bread-blod">%%crudNameCap%%</span>
+    </li>
+@endsection
+
+@section('content')
+    <div class="product-status mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+                        <h4>%%crudNameCap%%
+                        @if(Request::get('search'))
+                             : {{ Request::get('search') }}
+                            @endif
+                        </h4>
+                        <div class="add-product">
+                            <a  title="@lang('site.create-new') %%modelName%%" href="{{ url('/%%routeGroup%%%%viewName%%/create') }}"><i class="fa fa-plus" aria-hidden="true"></i> @lang('site.add-new')</a>
+                        </div>
+                        <div class="asset-inner">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>%%formHeadingHtml%%<th>@lang('site.actions')</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($%%crudName%% as $item)
+                                    <tr>
+                                        <td>{{  $item->%%primaryKey%% }}</td>
+                                        %%formBodyHtml%%
+                                        <td>
+                                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" title="@lang('site.view') %%modelName%%"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> @lang('site.view')</button></a>
+                                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%% . '/edit') }}" title="@lang('site.edit') %%modelName%%"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> @lang('site.edit')</button></a>
+
+                                            <form method="POST" action="{{ url('/%%routeGroup%%%%viewName%%' . '/' . $item->%%primaryKey%%) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm" title="@lang('site.delete') %%modelName%%" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> @lang('site.delete')</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="custom-pagination">
+                            {!! $%%crudName%%->appends(['search' => Request::get('search')])->render() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection

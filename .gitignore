@@ -1,0 +1,9 @@
+.env
+.DS_Store
+**/.DS_Store
+.idea
+src/admin/data/public/.env
+src/admin/data/public/storage/framework/views/
+src/admin/data/public/storage/framework/sessions/
+src/admin/data/public/storage/logs/
+src/database/

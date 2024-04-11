@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SideNavBar from "@/components/SideNavBar";
+import Header from "@/components/Header";
+import { SideNavProvider } from "@/components/SideNavContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +17,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <SideNavProvider>
+        <div className='flex'>
+          <SideNavBar />
+          <div className="w-full h-screen overflow-auto bg-[#F9FAFB]">
+            <Header />
+            {children}
+          </div>
+        </div>
+        </SideNavProvider>
+      </body>
     </html>
   );
 }

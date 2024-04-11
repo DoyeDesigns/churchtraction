@@ -13,10 +13,13 @@ const config = {
     colors: {
       primary: '#5c6ac4',
       secondary: '#ecc94b',
+      navLink: '#1671D9',
       cta: '#00459A',
       customWhite: '#fff',
       customRed: '#ff0000',
-      background: '#F4F2F4'
+      background: '#F4F2F4',
+      notificationCta: '#C53131',
+      dashboardAvater: '#0196E8'
     },
     container: {
       center: true,

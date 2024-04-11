@@ -72,7 +72,7 @@ export default function Login() {
   });
 
   return (
-    <main className="flex bg-[#F4F2F4]">
+    <main className="flex bg-[#F4F2F4] w-screen">
       <div className="bg-[url('/side-left.png')] h-screen w-[473px] relative hidden md:block">
         <Image
           src="/Mask group.png"
@@ -90,6 +90,7 @@ export default function Login() {
         </div>
       </div>
 
+      {/* <div className="w-full"> */}
       <div className="flex flex-col justify-center h-screen items-center w-[380px] mx-auto">
         <Image
           src="/logo.png"
@@ -206,6 +207,7 @@ export default function Login() {
           </div>
         </form>
       </div>
+      {/* </div> */}
     </main>
   );
 }

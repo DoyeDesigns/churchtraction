@@ -16,8 +16,8 @@ interface WeeklyReports {
 }
 
 export default function CellReportCard({ reports }: WeeklyReports) {
-  return reports.map((report) => (
-    <Card className="min-w-[310px] min-h-[155px] bg-customWhite border-none">
+  return reports.map((report, index) => (
+    <Card key={index} className="min-w-[310px] min-h-[155px] bg-customWhite border-none">
       <CardContent className="pt-7">
         <div className="flex items-center justify-between">
           <div className="flex items-center">

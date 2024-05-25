@@ -30,11 +30,19 @@ export default function Header () {
 
     const currentPath = usePathname();
 
+    const navigationPath = [{path: '/', text: 'Dashboard'}, {path: '/members', text: 'Members'}]
+
+    if (currentPath !== "/login") {
     return (
         <header className="flex items-center justify-between w-full px-[49px] border-b border-[#E4E7EC] pt-[19px] pb-[15px] bg-[#fff]">
             <span className='flex items-center gap-3'>
                 <Button className="p-0 md:hidden" onClick={toggleSideNav}><Menu /></Button>
-                {currentPath === '/' ? (<span>Dashboard /</span>) : (<span>{currentPath} /</span>)}
+                {navigationPath.map(path => (
+          path.path === currentPath ? (
+            <span key={path.path}>{path.text} /</span>
+          ) : null
+        ))
+      }
             </span>
 
             <div className="flex items-center">
@@ -59,5 +67,5 @@ export default function Header () {
                 </Avatar>
             </div>
         </header>
-    )
+    )}
 }

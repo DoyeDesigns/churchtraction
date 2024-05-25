@@ -24,7 +24,7 @@ export default function RootLayout({
       <SideNavProvider>
         <div className='flex'>
           <SideNavBar />
-          <div className="w-full h-screen overflow-auto bg-[#F9FAFB]">
+          <div className="flex-1 h-screen overflow-auto bg-[#F9FAFB]">
             <Header />
             {children}
           </div>

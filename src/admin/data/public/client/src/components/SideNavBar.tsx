@@ -37,7 +37,7 @@ export default function SideNavBar({}: Props) {
     return (
       <div
         className={`h-screen overflow-auto border-r z-10 flex flex-col gap-10 justify-between bg-customWhite  ${
-          isSideNavOpen ? 'w-[272px] md:w-[372px]' : 'hidden'
+          isSideNavOpen ? 'w-[272px]' : 'hidden'
         } ${mobileWidth && isSideNavOpen ? 'absolute top-0 left-0 z-50' : ''}`}//272px
       >
         <div>
@@ -87,10 +87,6 @@ export default function SideNavBar({}: Props) {
               href: "/members",
               icon: UsersRound,
               variant: "ghost",
-              submenu: [{
-                title: 'menu1',
-                href: '/menu1',
-              },]
             },
             {
               title: "Announcement",

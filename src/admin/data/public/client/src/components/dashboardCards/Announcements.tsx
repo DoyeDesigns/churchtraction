@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Announcements() {
   return (
-    <Card className="min-w-[320px] min-h-[155px] bg-customWhite border-none">
+    <Card className="min-w-[310px] min-h-[155px] bg-customWhite border-none">
       <CardContent className="pt-7">
         <div className="flex items-center justify-between">
           <div className="flex items-center">

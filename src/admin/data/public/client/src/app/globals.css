@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For Firefox */
+* {
+    scrollbar-width: none; /* Hide scrollbar */
+  }
+  
+  /* Show scrollbar on hover */
+  *:hover {
+    scrollbar-width: thin; /* Show scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+  }
+
+
+/* For Webkit-based browsers (Chrome, Safari, Opera) */
+
+/* Hide scrollbar by default */
+::-webkit-scrollbar {
+    width: 0; /* Vertical scrollbar width */
+    height: 0; /* Horizontal scrollbar height */
+  }
+  
+  /* Show scrollbar on hover */
+  ::-webkit-scrollbar:hover {
+    width: 12px; /* Vertical scrollbar width */
+    height: 12px; /* Horizontal scrollbar height */
+  }
+
+::-webkit-scrollbar-track {
+  background-color: #fff; /* Track background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Thumb color */
+  border-radius: 6px; /* Thumb border radius */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Thumb color on hover */
+}
+
+/* For Internet Explorer and Edge (Old Version) */
+body {
+  scrollbar-base-color: #f1f1f1; /* Track color */
+  scrollbar-face-color: #888; /* Thumb color */
+  scrollbar-track-color: #f1f1f1; /* Track color */
+}

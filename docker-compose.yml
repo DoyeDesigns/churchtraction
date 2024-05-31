@@ -47,3 +47,15 @@ services:
             - church_db
         network_mode: bridge
         restart: always
+
+    church_client:
+        container_name: church_client
+        build: ./infra/client
+        volumes:
+            - "${CLIENT_SRC_FOLDER}:/var/www/html"
+        ports:
+            -  "${CLIENT_PORT}:80"
+        links:
+            - church_admin
+        network_mode: bridge
+        restart: always

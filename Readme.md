@@ -19,6 +19,12 @@ Web interface => http://localhost:[ADMIN_PORT | 8300]
 
 ## Clean app views/route/cache
 docker exec -it church_admin bash  
+
+mkdir /var/www/html/storage/framework/sessions -p
+mkdir /var/www/html/storage/framework/views -p
+mkdir /var/www/html/storage/framework/cache -p
+
+
 php artisan route:clear  
 php artisan view:clear  
 php artisan cache:clear  

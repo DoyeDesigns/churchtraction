@@ -20,12 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace'=>'Api','prefix'=>'v1'],function(){
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'api.admin'],function(){
-
         Route::get('/members','MembersController@index');
 
-
     });
-
 
 });
 
